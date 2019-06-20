@@ -10,6 +10,8 @@ import UIKit
 
 class VideoViewController: UIViewController {
 
+    @IBOutlet weak var maxTimeLabel: UILabel!
+    @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var videoTimelineSlider: VideoTimelineSlider!
     
     override func viewDidLoad() {
@@ -19,7 +21,17 @@ class VideoViewController: UIViewController {
         
         videoTimelineSlider.minimumValue = 0
         videoTimelineSlider.maximumValue = 10
-        videoTimelineSlider.value = 7
+        videoTimelineSlider.value = 0
+        
+        maxTimeLabel.text = String(Int(videoTimelineSlider.maximumValue))
+       
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+            self.videoTimelineSlider.value = self.videoTimelineSlider.value + 1
+            if(self.videoTimelineSlider.value == 10) {
+                timer.invalidate()
+            }
+        }
+        
     }
     
     @IBAction func onBack(_ sender: UIBarButtonItem) {
@@ -29,9 +41,11 @@ class VideoViewController: UIViewController {
 
 extension VideoViewController: VideoTimelineDelegate {
     func onStopDragging(value: Float) {
+        currentTimeLabel.text = String(Int(value))
         print("Soltou: \(value)")
     }
     func onDragging(value: Float) {
+        currentTimeLabel.text = String(Int(value))
         print("Arrastando: \(value)")
     }
 }

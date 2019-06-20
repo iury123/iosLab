@@ -153,9 +153,27 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNA-0u-rrQ">
                                 <rect key="frame" x="0.0" y="64" width="414" height="227"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryp-l7-fpu">
+                                        <rect key="frame" x="8" y="186" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkJ-oX-qxK">
+                                        <rect key="frame" x="364" y="186" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fkJ-oX-qxK" secondAttribute="trailing" constant="8" id="5EV-U1-Na6"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ryp-l7-fpu" secondAttribute="bottom" constant="20" id="CO8-zh-9Ur"/>
+                                    <constraint firstItem="Ryp-l7-fpu" firstAttribute="leading" secondItem="zNA-0u-rrQ" secondAttribute="leading" constant="8" id="Zmd-Op-Ymy"/>
                                     <constraint firstAttribute="height" constant="227" id="h5c-r5-WW7"/>
+                                    <constraint firstAttribute="bottom" secondItem="fkJ-oX-qxK" secondAttribute="bottom" constant="20" id="zoT-d7-7hj"/>
                                 </constraints>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="CCa-lA-6pF" customClass="VideoTimelineSlider" customModule="MyLab" customModuleProvider="target">
@@ -200,6 +218,8 @@
                         <viewLayoutGuide key="safeArea" id="EBr-dp-2Rz"/>
                     </view>
                     <connections>
+                        <outlet property="currentTimeLabel" destination="Ryp-l7-fpu" id="mrQ-jL-xDb"/>
+                        <outlet property="maxTimeLabel" destination="fkJ-oX-qxK" id="x8N-tn-pgf"/>
                         <outlet property="videoTimelineSlider" destination="CCa-lA-6pF" id="63a-J8-B8e"/>
                     </connections>
                 </viewController>

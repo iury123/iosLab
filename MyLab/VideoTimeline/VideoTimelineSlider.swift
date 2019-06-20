@@ -16,22 +16,9 @@ protocol VideoTimelineDelegate: class {
 @IBDesignable class VideoTimelineSlider: UISlider {
     
     weak var delegate: VideoTimelineDelegate?
-    
-    @IBInspectable var minTrackColor: UIColor {
-        get {
-            return minimumTrackTintColor ?? .red
-        }
-        set {
-            minimumTrackTintColor = newValue
-        }
-    }
-    
-    @IBInspectable var thumbColor: UIColor {
-        get {
-            return thumbTintColor ?? .red
-        }
-        set {
-            thumbTintColor = newValue
+    override var value: Float {
+        didSet {
+            delegate?.onDragging(value: value)
         }
     }
     
@@ -45,11 +32,12 @@ protocol VideoTimelineDelegate: class {
     //while we are here, why not change the image here as well? (bonus material)
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.minimumTrackTintColor = .red
-        self.addTarget(self, action: #selector(VideoTimelineSlider.onStopDragging), for: .touchUpInside)
-        self.addTarget(self, action: #selector(VideoTimelineSlider.onDragging), for: .valueChanged)
+        minimumTrackTintColor = .red
+        thumbTintColor = .red
+        addTarget(self, action: #selector(VideoTimelineSlider.onDragging), for: .valueChanged)
+        addTarget(self, action: #selector(VideoTimelineSlider.onStopDragging), for: .touchUpInside)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(VideoTimelineSlider.slideTapped))
-        self.addGestureRecognizer(tapGestureRecognizer)
+        addGestureRecognizer(tapGestureRecognizer)
     }
     
     @objc func onStopDragging(sender: VideoTimelineSlider) {
