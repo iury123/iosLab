@@ -28,7 +28,10 @@ class VideoViewController: UIViewController {
 }
 
 extension VideoViewController: VideoTimelineDelegate {
-    func onSlideChanged(value: Float) {
-        print(value)
+    func onStopDragging(value: Float) {
+        print("Soltou: \(value)")
+    }
+    func onDragging(value: Float) {
+        print("Arrastando: \(value)")
     }
 }

@@ -9,7 +9,8 @@
 import UIKit
 
 protocol VideoTimelineDelegate: class {
-    func onSlideChanged(value: Float)
+    func onStopDragging(value: Float)
+    func onDragging(value: Float)
 }
 
 @IBDesignable class VideoTimelineSlider: UISlider {
@@ -44,15 +45,19 @@ protocol VideoTimelineDelegate: class {
     //while we are here, why not change the image here as well? (bonus material)
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.isContinuous = false
         self.minimumTrackTintColor = .red
-        self.addTarget(self, action: #selector(VideoTimelineSlider.slideChange), for: .valueChanged)
+        self.addTarget(self, action: #selector(VideoTimelineSlider.onStopDragging), for: .touchUpInside)
+        self.addTarget(self, action: #selector(VideoTimelineSlider.onDragging), for: .valueChanged)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(VideoTimelineSlider.slideTapped))
         self.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    @objc func slideChange(sender: VideoTimelineSlider) {
-        delegate?.onSlideChanged(value: sender.value)
+    @objc func onStopDragging(sender: VideoTimelineSlider) {
+        delegate?.onStopDragging(value: sender.value)
+    }
+    
+    @objc func onDragging(sender: VideoTimelineSlider) {
+        delegate?.onDragging(value: sender.value)
     }
     
     @objc func slideTapped(gestureRecognizer: UIGestureRecognizer) {
@@ -61,6 +66,6 @@ protocol VideoTimelineDelegate: class {
         let widthOfSlider: CGFloat = frame.size.width
         let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat(maximumValue) / widthOfSlider)
         setValue(Float(newValue), animated: true)
-        delegate?.onSlideChanged(value: Float(newValue))
+        delegate?.onStopDragging(value: Float(newValue))
     }
 }
