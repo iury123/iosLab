@@ -123,7 +123,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jpJ-Xz-JJL"/>
+                    <navigationItem key="navigationItem" id="jpJ-Xz-JJL">
+                        <barButtonItem key="rightBarButtonItem" title="Video Timeline" id="g7Y-Ut-W4c">
+                            <connections>
+                                <segue destination="fkX-c2-oc3" kind="presentation" id="NHT-hB-jdt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="itemsPerRow">
                             <real key="value" value="2"/>
@@ -136,6 +142,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="782.60869565217399" y="751.63043478260875"/>
+        </scene>
+        <!--Video View Controller-->
+        <scene sceneID="idg-iu-e8p">
+            <objects>
+                <viewController id="fkX-c2-oc3" customClass="VideoViewController" customModule="MyLab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fUa-jc-v4y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNA-0u-rrQ">
+                                <rect key="frame" x="0.0" y="64" width="414" height="227"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="227" id="h5c-r5-WW7"/>
+                                </constraints>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="CCa-lA-6pF" customClass="VideoTimelineSlider" customModule="MyLab" customModuleProvider="target">
+                                <rect key="frame" x="-2" y="284" width="418" height="31"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="minTrackColor">
+                                        <color key="value" red="1" green="0.150029252" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbColor">
+                                        <color key="value" red="1" green="0.150029252" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </slider>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zr4-WL-ukd">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="GZv-l8-LRE"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="e4O-Ws-ixe">
+                                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="oQr-KQ-WVf">
+                                            <connections>
+                                                <action selector="onBack:" destination="fkX-c2-oc3" id="ZU2-Ox-EuY"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Zr4-WL-ukd" firstAttribute="top" secondItem="EBr-dp-2Rz" secondAttribute="top" id="357-d7-EA8"/>
+                            <constraint firstItem="CCa-lA-6pF" firstAttribute="trailing" secondItem="zNA-0u-rrQ" secondAttribute="trailing" id="6NF-II-bBN"/>
+                            <constraint firstItem="Zr4-WL-ukd" firstAttribute="leading" secondItem="EBr-dp-2Rz" secondAttribute="leading" id="72o-IW-Ah5"/>
+                            <constraint firstItem="CCa-lA-6pF" firstAttribute="leading" secondItem="zNA-0u-rrQ" secondAttribute="leading" id="CZj-Qa-118"/>
+                            <constraint firstItem="zNA-0u-rrQ" firstAttribute="trailing" secondItem="EBr-dp-2Rz" secondAttribute="trailing" id="aVM-HG-cc0"/>
+                            <constraint firstItem="zNA-0u-rrQ" firstAttribute="leading" secondItem="EBr-dp-2Rz" secondAttribute="leading" id="e7h-7W-Xqf"/>
+                            <constraint firstItem="Zr4-WL-ukd" firstAttribute="trailing" secondItem="EBr-dp-2Rz" secondAttribute="trailing" id="iqh-Jz-zdO"/>
+                            <constraint firstItem="CCa-lA-6pF" firstAttribute="bottom" secondItem="zNA-0u-rrQ" secondAttribute="bottom" constant="23" id="kn4-0O-JrW"/>
+                            <constraint firstItem="zNA-0u-rrQ" firstAttribute="top" secondItem="Zr4-WL-ukd" secondAttribute="bottom" id="ruY-Rt-O2R"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EBr-dp-2Rz"/>
+                    </view>
+                    <connections>
+                        <outlet property="videoTimelineSlider" destination="CCa-lA-6pF" id="63a-J8-B8e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rhz-qM-02m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1460.8695652173915" y="750.81521739130437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="apA-gD-ILN">
