@@ -24,14 +24,16 @@ class VideoViewController: UIViewController {
         videoTimelineSlider.value = 0
         
         maxTimeLabel.text = String(Int(videoTimelineSlider.maximumValue))
-       
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
-            self.videoTimelineSlider.value = self.videoTimelineSlider.value + 1
+        
+        var i: Float = 0;
+        
+        Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { (timer) in
+            i = i + 0.001
+            self.videoTimelineSlider.value = i
             if(self.videoTimelineSlider.value == 10) {
                 timer.invalidate()
             }
         }
-        
     }
     
     @IBAction func onBack(_ sender: UIBarButtonItem) {
