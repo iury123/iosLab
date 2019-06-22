@@ -16,15 +16,10 @@ protocol VideoTimelineDelegate: class {
 @IBDesignable class VideoTimelineSlider: UISlider {
     
     weak var delegate: VideoTimelineDelegate?
-    override var value: Float {
-        didSet {
-            delegate?.onDragging(value: value)
-        }
-    }
     
     override func trackRect(forBounds bounds: CGRect) -> CGRect {
         //keeps original origin and width, changes height, you get the idea
-        let customBounds = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width, height: 7.0))
+        let customBounds = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width, height: 8.0))
         super.trackRect(forBounds: customBounds)
         return customBounds
     }
@@ -40,6 +35,11 @@ protocol VideoTimelineDelegate: class {
         addGestureRecognizer(tapGestureRecognizer)
     }
     
+    override func setValue(_ value: Float, animated: Bool) {
+        super.setValue(value, animated: animated)
+         delegate?.onDragging(value: value)
+    }
+    
     @objc func onStopDragging(sender: VideoTimelineSlider) {
         delegate?.onStopDragging(value: sender.value)
     }
@@ -53,7 +53,7 @@ protocol VideoTimelineDelegate: class {
         let positionOfSlider: CGPoint = frame.origin
         let widthOfSlider: CGFloat = frame.size.width
         let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat(maximumValue) / widthOfSlider)
-        setValue(Float(newValue), animated: true)
+        value = Float(newValue)
         delegate?.onStopDragging(value: Float(newValue))
     }
 }

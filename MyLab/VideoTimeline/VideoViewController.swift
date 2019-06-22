@@ -27,9 +27,9 @@ class VideoViewController: UIViewController {
         
         var i: Float = 0;
         
-        Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { (timer) in
-            i = i + 0.001
-            self.videoTimelineSlider.value = i
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+            i = i + 1
+            self.videoTimelineSlider.setValue(i, animated: true)
             if(self.videoTimelineSlider.value == 10) {
                 timer.invalidate()
             }
