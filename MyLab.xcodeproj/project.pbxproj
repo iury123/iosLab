@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5628306522BB1E2300FDBBED /* VideoTimelineSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5628306422BB1E2300FDBBED /* VideoTimelineSlider.swift */; };
 		5628306722BB254300FDBBED /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5628306622BB254300FDBBED /* VideoViewController.swift */; };
+		562A92A122BEA6C400757F81 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A92A022BEA6C400757F81 /* MasterViewController.swift */; };
+		562A92A322BEA6DA00757F81 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A92A222BEA6DA00757F81 /* SummaryViewController.swift */; };
+		562A92A522BEA6E600757F81 /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A92A422BEA6E600757F81 /* SessionsViewController.swift */; };
 		5659D48822AC844D00DEBCD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659D48722AC844D00DEBCD4 /* AppDelegate.swift */; };
 		5659D48A22AC844D00DEBCD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659D48922AC844D00DEBCD4 /* ViewController.swift */; };
 		5659D48D22AC844D00DEBCD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5659D48B22AC844D00DEBCD4 /* Main.storyboard */; };
@@ -22,6 +25,9 @@
 /* Begin PBXFileReference section */
 		5628306422BB1E2300FDBBED /* VideoTimelineSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTimelineSlider.swift; sourceTree = "<group>"; };
 		5628306622BB254300FDBBED /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		562A92A022BEA6C400757F81 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		562A92A222BEA6DA00757F81 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		562A92A422BEA6E600757F81 /* SessionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
 		5659D48422AC844D00DEBCD4 /* MyLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5659D48722AC844D00DEBCD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5659D48922AC844D00DEBCD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +71,16 @@
 			path = VideoTimeline;
 			sourceTree = "<group>";
 		};
+		562A929F22BEA6A900757F81 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				562A92A022BEA6C400757F81 /* MasterViewController.swift */,
+				562A92A222BEA6DA00757F81 /* SummaryViewController.swift */,
+				562A92A422BEA6E600757F81 /* SessionsViewController.swift */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
 		5659D47B22AC844D00DEBCD4 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +100,7 @@
 		5659D48622AC844D00DEBCD4 /* MyLab */ = {
 			isa = PBXGroup;
 			children = (
+				562A929F22BEA6A900757F81 /* Container */,
 				5628306322BB1D8400FDBBED /* VideoTimeline */,
 				5659D48722AC844D00DEBCD4 /* AppDelegate.swift */,
 				56251AA222AD4501009591DA /* CollectionView */,
@@ -166,13 +183,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562A92A122BEA6C400757F81 /* MasterViewController.swift in Sources */,
 				5628306522BB1E2300FDBBED /* VideoTimelineSlider.swift in Sources */,
 				5628306722BB254300FDBBED /* VideoViewController.swift in Sources */,
 				5659D49A22AC879D00DEBCD4 /* Person.swift in Sources */,
 				5659D48A22AC844D00DEBCD4 /* ViewController.swift in Sources */,
+				562A92A522BEA6E600757F81 /* SessionsViewController.swift in Sources */,
 				5659D48822AC844D00DEBCD4 /* AppDelegate.swift in Sources */,
 				5659D49C22AC93A700DEBCD4 /* PersonCollectionViewCell.swift in Sources */,
 				5659D49E22AC98C000DEBCD4 /* CardView.swift in Sources */,
+				562A92A322BEA6DA00757F81 /* SummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
